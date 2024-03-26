@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_26_102946) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_26_144934) do
   create_table "blocks", force: :cascade do |t|
     t.integer "workout_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "mode"
+    t.string "format"
     t.index ["workout_id"], name: "index_blocks_on_workout_id"
   end
 

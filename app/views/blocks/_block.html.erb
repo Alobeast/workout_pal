@@ -1,12 +1,14 @@
-<div id="<%= dom_id block %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Workout:</strong>
-    <%= block.workout_id %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this block", block, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Edit this block", edit_block_path(block), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
-</div>
+<%= tag.div id: dom_id(block), class: "p-1 flex items-center gap-4"  do %>
+  <div class="flex justify-between">
+    <div>
+      <h5 class="font-bold"><%= block.mode %> - <%= block.format %></h5>
+      <ol class="list-none ml-7">
+        <% block.exercises.each do |exercise| %>
+          <%= tag.li id: dom_id(exercise) do %>
+            <%= exercise.description %>
+          <% end %>
+        <% end %>
+      </ol>
+    </div>
+  </div>
+<% end %>
