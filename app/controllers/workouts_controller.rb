@@ -3,7 +3,12 @@ class WorkoutsController < ApplicationController
 
   # GET /workouts or /workouts.json
   def index
-    @workouts = Workout.all
+    @workouts = if params[:workout_type].present?
+      Workout.where(category: "#{params[:workout_type]}")
+    else
+      Workout.all
+    end
+    @workout_types = [["", ""]] + Workout.pluck(:category).uniq
   end
 
   # GET /workouts/1 or /workouts/1.json

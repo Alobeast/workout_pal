@@ -2,7 +2,12 @@
   <div class="flex justify-between">
     <div>
       <h5 class="font-bold"><%= time_ago_in_words(workout.created_at) %></h5>
-      <div class="text-sm text-gray-700"><%= workout.category %></div>
+      <div class="text-sm text-gray-800"><%= workout.category %></div>
     </div>
+  </div>
+  <div class="flex flex-col ml-7 text-sm text-gray-600">
+    <% workout.blocks.order(created_at: :desc).each do |block| %>
+      <p><%= block.mode %></p>
+    <% end %>
   </div>
 <% end %>
