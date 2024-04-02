@@ -5,11 +5,12 @@
 
 <%= form_with url: workouts_path, method: :get, data: { controller: "filter-form", action: "change->filter-form#submit", turbo_frame: "workouts" } do %>
   <%= select_tag "workout_type", options_for_select(@workout_types, params[:workout_type]), include_blank: "All",
- class: "inline-block rounded-md border border-gray-200 outline-none px-3 py-2 w-full" %>
+ class: "inline-block rounded-md border border-gray-200 outline-none px-3 py-2" %>
 <% end %>
 
 <%= turbo_frame_tag "workouts" do %>
   <div id="workouts" class="flex flex-col divide-y divide-gray-200">
     <%= render @workouts %>
+    <%== pagy_nav(@pagy, link_extra: 'data-turbo-action="advance"') %>
   </div>
 <% end %>

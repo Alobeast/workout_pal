@@ -11,3 +11,37 @@
 }
 
 */
+/* Base styles for .pagy */
+.pagy {
+  @apply flex space-x-1 font-semibold text-sm text-gray-500;
+}
+
+/* Styles for links within .pagy that are not .gap */
+.pagy a:not(.gap) {
+  @apply block rounded-lg px-3 py-1 bg-gray-200;
+}
+
+/* Hover state for links within .pagy */
+.pagy a:not(.gap):hover {
+  @apply bg-gray-300;
+}
+
+/* Styles for disabled links within .pagy */
+.pagy a:not([href]) {
+  @apply text-gray-300 bg-gray-100 cursor-default;
+}
+
+/* Styles for the current page link within .pagy */
+.pagy a.current {
+  @apply text-white bg-gray-400;
+}
+
+/* Base styles for labels within .pagy */
+.pagy label {
+  @apply inline-block whitespace-nowrap bg-gray-200 rounded-lg px-3 py-0.5;
+}
+
+/* Styles for inputs within labels inside .pagy */
+.pagy label input {
+  @apply bg-gray-100 border-none rounded-md;
+}
