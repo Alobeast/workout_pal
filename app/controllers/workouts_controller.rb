@@ -8,7 +8,7 @@ class WorkoutsController < ApplicationController
     else
       Workout.all
     end
-    @workout_types = [["", ""]] + Workout.pluck(:category).uniq
+    @workout_types = Workout.pluck(:category).uniq
   end
 
   # GET /workouts/1 or /workouts/1.json

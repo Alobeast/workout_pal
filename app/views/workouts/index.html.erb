@@ -2,10 +2,10 @@
   <h1 class="text-2xl font-bold">Workouts</h1>
 </div>
 
-<%= form_with url: workouts_path, method: :get, data: { controller: "form", action: "input->form#submit", turbo_frame: "workouts", turbo_action: "advance" } do %>
-  <%= select_tag "workout_type", options_for_select(@workout_types), class: "inline-block rounded-md border border-gray-200 outline-none px-3 py-2  w-full" %>
-  <%# add a submit button to the form %>
-  <%= submit_tag "Search", class: "inline-block rounded-md border border-gray-200 outline-none px-3 py-2  w-full" %>
+
+<%= form_with url: workouts_path, method: :get, data: { controller: "filter-form", action: "change->filter-form#submit", turbo_frame: "workouts" } do %>
+  <%= select_tag "workout_type", options_for_select(@workout_types, params[:workout_type]), include_blank: "All",
+ class: "inline-block rounded-md border border-gray-200 outline-none px-3 py-2 w-full" %>
 <% end %>
 
 <%= turbo_frame_tag "workouts" do %>
