@@ -1,7 +1,7 @@
 <%= link_to workout, id: dom_id(workout), data: { turbo_frame: "_top" }, class: "p-4 mx-4 hover:bg-gray-100" do %>
   <div class="flex justify-between">
     <div>
-      <h5 class="font-bold"><%= time_ago_in_words(workout.created_at) %></h5>
+      <h5 class="font-bold">Created <%= time_ago_in_words(workout.created_at) %> ago</h5>
       <div class="text-sm text-gray-800"><%= workout.category %></div>
     </div>
   </div>
